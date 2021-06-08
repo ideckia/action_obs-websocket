@@ -36,14 +36,10 @@ jobs:
 
     - name: Package to release
       run: |
-        mkdir -p tmp/${{ env.CMD_NAME }}
-        mv index.js tmp/${{ env.CMD_NAME }}
-        cp node_modules tmp/${{ env.CMD_NAME }}
-
-    - uses: papeloto/action-zip@v1
-      with:
-        files: tmp/
-        dest: ${{ env.CMD_NAME }}.zip
+        mkdir ${{ env.CMD_NAME }}
+        mv index.js ${{ env.CMD_NAME }}
+        mv node_modules ${{ env.CMD_NAME }}
+        zip -r ${{ env.CMD_NAME }} ${{ env.CMD_NAME }}
 
     - name: Release
       uses: "marvinpinto/action-automatic-releases@latest"
