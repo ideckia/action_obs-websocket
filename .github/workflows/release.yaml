@@ -38,7 +38,7 @@ jobs:
       run: |
         mkdir -p tmp/${{ env.CMD_NAME }}
         mv index.js tmp/${{ env.CMD_NAME }}
-        cp node_modules/ tmp/${{ env.CMD_NAME }}/node_modules
+        cp node_modules tmp/${{ env.CMD_NAME }}
 
     - uses: papeloto/action-zip@v1
       with:
