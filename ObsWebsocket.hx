@@ -16,7 +16,7 @@ typedef Props = {
 class ObsWebsocket extends IdeckiaAction {
 	static var obs:ObsWebsocketJs;
 
-	override public function init() {
+	override public function init(_) {
 		if (obs != null) {
 			server.log("OBS already connected.");
 			return;
