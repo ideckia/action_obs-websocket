@@ -36,3 +36,26 @@ Connect to obs-websocket
     }
 }
 ```
+
+### Set scene
+"requestName": "SetCurrentScene",
+"requestArguments": {
+    "scene-name": "first-scene"
+}
+
+### Show source
+"requestName": "SetSceneItemProperties",
+"requestArguments": {
+    "item": "my-source",
+    "visible": true
+}
+
+### Mute microphone
+"requestName": "SetMute",
+"requestArguments": {
+    "source": "MainMic",
+    "mute": true
+}
+## Server
+
+OBS WebSocket plugin must be installed in order to work. Download from [here](https://github.com/Palakis/obs-websocket/releases)
