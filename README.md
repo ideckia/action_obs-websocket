@@ -56,3 +56,6 @@ Connect to obs-websocket
     "source": "MainMic",
     "mute": true
 }
+## Server
+
+OBS WebSocket plugin must be installed in order to work. Download from [here](https://github.com/Palakis/obs-websocket/releases)
