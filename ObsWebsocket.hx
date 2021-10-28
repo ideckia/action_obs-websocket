@@ -13,24 +13,31 @@ typedef Props = {
 	var requestArguments:Any;
 }
 
+@:name('obs-websocket')
 class ObsWebsocket extends IdeckiaAction {
 	static var obs:ObsWebsocketJs;
 
-	override public function init(_) {
-		if (obs != null) {
-			server.log("OBS already connected.");
-			return;
-		}
+	override public function init(initialState:ItemState):js.lib.Promise<ItemState> {
+		return new js.lib.Promise((resolve, reject) -> {
+			if (obs != null) {
+				server.log("OBS already connected.");
+				resolve(initialState);
+				return;
+			}
 
-		obs = new ObsWebsocketJs();
-		obs.connect({
-			address: props.address,
-			password: props.password
-		}).then((_) -> {
-			server.log("Success! We're connected & authenticated.");
-		}).catchError((error) -> {
-			obs = null;
-			server.dialog(DialogType.Error, 'Error connecting to OBS: $error');
+			obs = new ObsWebsocketJs();
+			obs.connect({
+				address: props.address,
+				password: props.password
+			}).then((_) -> {
+				server.log("Success! We're connected & authenticated.");
+			}).catchError((error) -> {
+				obs = null;
+				var msg = 'Error connecting to OBS: $error';
+				server.dialog(DialogType.Error, msg);
+				reject(msg);
+			});
+			resolve(initialState);
 		});
 	}
 
