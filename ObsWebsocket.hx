@@ -20,7 +20,7 @@ class ObsWebsocket extends IdeckiaAction {
 	override public function init(initialState:ItemState):js.lib.Promise<ItemState> {
 		return new js.lib.Promise((resolve, reject) -> {
 			if (obs != null) {
-				server.log("OBS already connected.");
+				server.log.debug("OBS already connected.");
 				resolve(initialState);
 				return;
 			}
@@ -30,12 +30,10 @@ class ObsWebsocket extends IdeckiaAction {
 				address: props.address,
 				password: props.password
 			}).then((_) -> {
-				server.log("Success! We're connected & authenticated.");
+				server.log.info("Success! We're connected & authenticated.");
 			}).catchError((error) -> {
 				obs = null;
-				var msg = 'Error connecting to OBS: $error';
-				server.dialog(DialogType.Error, msg);
-				reject(msg);
+				reject('Error connecting to OBS: $error');
 			});
 			resolve(initialState);
 		});
@@ -48,9 +46,9 @@ class ObsWebsocket extends IdeckiaAction {
 			if (requestName == null)
 				reject('The requestName can not be null');
 
-			server.log('Sending request [name=$requestName, args=${props.requestArguments}]');
+			server.log.debug('Sending request [name=$requestName, args=${props.requestArguments}]');
 			obs.send(requestName, props.requestArguments).then(data -> {
-				server.log('Received data: $data.');
+				server.log.debug('Received data: $data.');
 			}).catchError((error) -> {
 				reject('Error: $error');
 			});
