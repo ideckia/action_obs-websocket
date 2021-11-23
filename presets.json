@@ -1,0 +1,37 @@
+[
+	{
+		"name": "set scene",
+		"props": {
+			"address": "::localhost:4000::",
+			"password": "::my_password::",
+			"requestName": "SetCurrentScene",
+			"requestArguments": {
+				"scene-name": "::my-scene-name::"
+			}
+		}
+	},
+	{
+		"name": "show source",
+		"props": {
+			"address": "::localhost:4000::",
+			"password": "::my_password::",
+			"requestName": "SetSceneItemProperties",
+			"requestArguments": {
+				"item": "::my-source::",
+				"visible": true
+			}
+		}
+	},
+	{
+		"name": "mute microphone",
+		"props": {
+			"address": "::localhost:4000::",
+			"password": "::my_password::",
+			"requestName": "SetMute",
+			"requestArguments": {
+				"source": "::MainMic::",
+				"mute": true
+			}
+		}
+	}
+]
