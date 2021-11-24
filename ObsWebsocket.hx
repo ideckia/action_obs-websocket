@@ -14,6 +14,7 @@ typedef Props = {
 }
 
 @:name('obs-websocket')
+@:description('Control OBS via websockets. A wrapper for obs-websocket-js')
 class ObsWebsocket extends IdeckiaAction {
 	static var obs:ObsWebsocketJs;
 
