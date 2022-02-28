@@ -3,8 +3,10 @@ package;
 using api.IdeckiaApi;
 
 typedef Props = {
+	@:shared
 	@:editable("Obs address", "localhost:4444")
 	var address:String;
+	@:shared
 	@:editable("Obs password")
 	var password:String;
 	@:editable("Obs request name")
