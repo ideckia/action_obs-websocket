@@ -11,8 +11,8 @@ Connect to obs-websocket
 | ----- |----- | ----- | ----- | ----- |
 | address | String | Obs address | "localhost:4444" | null |
 | password | String | Obs password | null | null |
-| requestArguments | Any | Obs request arguments | null | null |
-| requestName | String | Obs request name | null | null |
+| request_arguments | Any | Obs request arguments | null | null |
+| request_name | String | Obs request name | null | null |
 
 
 ## Example in layout file
@@ -27,8 +27,8 @@ Connect to obs-websocket
             "props": {
                 "address": "localhost:1234",
                 "password": "my_password",
-                "requestName": "SetCurrentScene",
-                "requestArguments": {
+                "request_name": "SetCurrentScene",
+                "request_arguments": {
                     "scene-name": "first-scene"
                 }
             }
@@ -40,8 +40,8 @@ Connect to obs-websocket
 ### Set scene
 
 ```json
-"requestName": "SetCurrentScene",
-"requestArguments": {
+"request_name": "SetCurrentScene",
+"request_arguments": {
     "scene-name": "first-scene"
 }
 ```
@@ -49,8 +49,8 @@ Connect to obs-websocket
 ### Show source
 
 ```json
-"requestName": "SetSceneItemProperties",
-"requestArguments": {
+"request_name": "SetSceneItemProperties",
+"request_arguments": {
     "item": "my-source",
     "visible": true
 }
@@ -59,8 +59,8 @@ Connect to obs-websocket
 ### Mute microphone
 
 ```json
-"requestName": "SetMute",
-"requestArguments": {
+"request_name": "SetMute",
+"request_arguments": {
     "source": "MainMic",
     "mute": true
 }

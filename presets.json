@@ -4,8 +4,8 @@
 		"props": {
 			"address": "::localhost:4000::",
 			"password": "::my_password::",
-			"requestName": "SetCurrentScene",
-			"requestArguments": {
+			"request_name": "SetCurrentScene",
+			"request_arguments": {
 				"scene-name": "::my-scene-name::"
 			}
 		}
@@ -15,8 +15,8 @@
 		"props": {
 			"address": "::localhost:4000::",
 			"password": "::my_password::",
-			"requestName": "SetSceneItemProperties",
-			"requestArguments": {
+			"request_name": "SetSceneItemProperties",
+			"request_arguments": {
 				"item": "::my-source::",
 				"visible": true
 			}
@@ -27,8 +27,8 @@
 		"props": {
 			"address": "::localhost:4000::",
 			"password": "::my_password::",
-			"requestName": "SetMute",
-			"requestArguments": {
+			"request_name": "SetMute",
+			"request_arguments": {
 				"source": "::MainMic::",
 				"mute": true
 			}
