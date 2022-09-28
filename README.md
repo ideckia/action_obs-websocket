@@ -11,8 +11,8 @@ Connect to obs-websocket
 | ----- |----- | ----- | ----- | ----- |
 | address | String | Obs address | "localhost:4444" | null |
 | password | String | Obs password | null | null |
-| requestArguments | Any | Obs request arguments | null | null |
-| requestName | String | Obs request name | null | null |
+| request_arguments | Any | Obs request arguments | null | null |
+| request_name | String | Obs request name | null | null |
 
 
 ## Example in layout file
@@ -27,8 +27,8 @@ Connect to obs-websocket
             "props": {
                 "address": "localhost:1234",
                 "password": "my_password",
-                "requestName": "SetCurrentScene",
-                "requestArguments": {
+                "request_name": "SetCurrentScene",
+                "request_arguments": {
                     "scene-name": "first-scene"
                 }
             }
@@ -38,24 +38,34 @@ Connect to obs-websocket
 ```
 
 ### Set scene
-"requestName": "SetCurrentScene",
-"requestArguments": {
+
+```json
+"request_name": "SetCurrentScene",
+"request_arguments": {
     "scene-name": "first-scene"
 }
+```
 
 ### Show source
-"requestName": "SetSceneItemProperties",
-"requestArguments": {
+
+```json
+"request_name": "SetSceneItemProperties",
+"request_arguments": {
     "item": "my-source",
     "visible": true
 }
+```
 
 ### Mute microphone
-"requestName": "SetMute",
-"requestArguments": {
+
+```json
+"request_name": "SetMute",
+"request_arguments": {
     "source": "MainMic",
     "mute": true
 }
+```
+
 ## Server
 
-OBS WebSocket plugin must be installed in order to work. Download from [here](https://github.com/Palakis/obs-websocket/releases)
+OBS WebSocket plugin (version 4.x.x) must be installed in order to work. Download from [here](https://github.com/Palakis/obs-websocket/releases).

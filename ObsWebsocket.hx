@@ -10,9 +10,9 @@ typedef Props = {
 	@:editable("Obs password")
 	var password:String;
 	@:editable("Obs request name")
-	var requestName:String;
+	var request_name:String;
 	@:editable("Obs request arguments")
-	var requestArguments:Any;
+	var request_arguments:Any;
 }
 
 @:name('obs-websocket')
@@ -44,13 +44,11 @@ class ObsWebsocket extends IdeckiaAction {
 
 	public function execute(currentState:ItemState):js.lib.Promise<ItemState> {
 		return new js.lib.Promise((resolve, reject) -> {
-			var requestName = props.requestName;
+			if (props.request_name == null)
+				reject('The request_name can not be null');
 
-			if (requestName == null)
-				reject('The requestName can not be null');
-
-			server.log.debug('Sending request [name=$requestName, args=${props.requestArguments}]');
-			obs.send(requestName, props.requestArguments).then(data -> {
+			server.log.debug('Sending request [name=${props.request_name}, args=${props.request_arguments}]');
+			obs.send(props.request_name, props.request_arguments).then(data -> {
 				server.log.debug('Received data: $data.');
 			}).catchError((error) -> {
 				reject('Error: $error');
